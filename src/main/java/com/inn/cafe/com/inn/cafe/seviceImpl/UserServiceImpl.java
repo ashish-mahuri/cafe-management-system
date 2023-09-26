@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
                 User user = userDao.findByEmailId(requestMap.get("email"));
                 if (Objects.isNull(user)) {
                     userDao.save(getUserFromMap(requestMap));
-                    return CafeUtils.getResponseEntity("Successfully Registered", HttpStatus.OK);
+                    return CafeUtils.getResponseEntity(CafeConstants.SUCCESSFULLY_REGISTERED, HttpStatus.OK);
                 } else {
                     return CafeUtils.getResponseEntity("Email Already Exist", HttpStatus.BAD_REQUEST);
                 }
